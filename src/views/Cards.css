@@ -1,0 +1,77 @@
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .proverbCard img {
+    width: 100%;
+    margin-left: 30px;
+    object-fit: cover;
+  }
+}
+
+
+.proverbCard {
+  cursor: pointer;
+  background-color: transparent;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.proverbCard h1 {
+  font-size: 17px;
+  color: white;
+  border-bottom: 1px #f5d742 solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.proverbCard img {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.proverbCard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.proverbCard:hover .proverbCard-inner {
+  transform: rotateY(180deg);
+}
+
+.proverbCard-front,
+.proverbCard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.proverbCard-back {
+  font-size: 14px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
